@@ -4,6 +4,24 @@
 	</head>
 	<body ng-controller="arrayController">
 	
+		<!-- <div ng-repeat="person in people">
+			<pre>
+				{{person | json}}	
+			</pre>
+		</div> -->
+		<div>
+			Filter: <input type="text" ng-model="peopleSearch">
+		</div>
+		<ul>
+			<div ng-repeat=" person in people | filter : {name: peopleSearch} | orderBy:'name' ">
+				<li><strong>{{person.name}}</strong></li>
+				<li>{{person.phone}}</li>
+				<li>{{person.email}}</li>
+				<hr>
+			</div>
+		</ul>		
+
+	<!-- Angular -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 		<script src="app.js"></script>
 		<script src="controller.js"></script>
